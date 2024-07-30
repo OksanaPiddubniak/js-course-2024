@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>main title</h1>
+    <p>Виберіть значення для перетворення</p>
+    <input type="text" class="temp" />
+    <hr />
+    <div>
+      <button id="btnToC">У градуси Цельсія</button>
+      <button id="btnToF">У градуси Фаренгейта</button>
+    </div>
+    <p id="output"></p>
     <script>
-        let firstName;
-        let errorMessage = "file not found";
-        let count = 10;
+      //   let number1 = prompt("Введіть число №1");
+      //   let number2 = prompt("Введіть число №2");
+      //   let number3 = prompt("Введіть число №3");
+      //   number1 = parseFloat(number1);
+      //   number2 = parseFloat(number2);
+      //   number3 = parseFloat(number3);
+      //   let sum = number1 + number2 + number3;
+      //   let avg = sum / 3;
+      //   alert(avg.toFixed(2));
+      // ***************************************
+      //   let birthYear = prompt("Введіть свій рік народження");
+      //   birthYear = parseFloat(birthYear);
+      //   let currentDate = new Date();
+      //   let currentYear = currentDate.getFullYear();
+      //   let age = currentYear - birthYear;
+      //   const adultAge = 18;
+      //   if (age >= adultAge) {
+      //     console.log(`Так, ти повнолітній, тобі ${age}`);
+      //   } else {
+      //     console.log(`Ні, ти не повнолітній, тобі ${age}`);
+      //   }
+      // ***************************************
+      let temp = document.querySelector(".temp");
+      let btnToC = document.querySelector("#btnToC");
+      let btnToF = document.querySelector("#btnToF");
+      let output = document.querySelector("#output");
 
-        let test = count;
-        console.log(test);
+      btnToC.addEventListener("click", function () {
+        let tempF = Number(temp.value);
+        let tempC = (5 / 9) * (tempF - 32);
+        showRes(tempC);
+      });
+      btnToF.addEventListener("click", function () {
+        let tempC = Number(temp.value);
+        let tempF = (5 / 9) * tempC + 32;
+        showRes(tempF);
+      });
 
-        //let a = 1, b = 2, c;
-
-        const PI = 3.14;
-        //PI = 1;
-        count = 5;
-
-        var a = 10.5; // number
-        console.log(typeof(a));
-        let b = 'test 10'; // string 
-        console.log(typeof(b));
-        let c = true; // boolean
-        console.log(typeof(c));
-        b = 1;
-        console.log(typeof(b));
-        
-        let result;
-        let operand1 = 10, operand2 = 20;
-        result = operand1 / operand2; // - / * %
-        console.log(result);
-
-        result --;
-        // result = result + 1;
-        console.log(result);
-
-        //result = result + 10;
-        result += 10;
-        console.log(result);
+      function showRes(result) {
+        output.innerHTML = result;
+      }
     </script>
-    
-</body>
+  </body>
 </html>
